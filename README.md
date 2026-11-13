@@ -84,28 +84,19 @@ Known limitations:
 
 ## Install on MorphOS
 
-**Easiest:** download the latest [`.lha` release](https://github.com/BartT21/MOSnode/releases/latest)
-and unpack it to `Work:mosnode` — it already contains `mosnode`, `lib/`, the launch
-script and an `install` helper. Then skip to step 2 to add `cli.js`. The steps below
-describe the same layout if you prefer to assemble it from source.
+Download the latest [`.lha` release](https://github.com/BartT21/MOSnode/releases/latest).
+It is ready to run — no compiling. Three steps:
 
-### 1. Get the files
+### 1. Unpack
 
-Put everything in one folder, for example `Work:mosnode/`:
+Unpack the archive to `Work:mosnode` (double-click it, or `lha x MOSnode-*.lha`). You
+get `Work:mosnode/` with `mosnode`, `lib/`, the `claude` launcher, `README.txt`,
+`LICENSE` and a `.claude/` folder.
 
-```
-Work:mosnode/
-  mosnode        the runtime (build-morphos/mosnode_s from this repo)
-  lib/           this repo's lib/ folder
-  cli.js         Claude Code 2.1.112 (download it yourself, see step 2)
-  bin/ksh        a MorphOS (ixemul) ksh, used by Claude Code's Bash tool
-  libs/          ixemul.library, only if your system doesn't have it already
-  claude         launch script (step 4)
-```
+### 2. Add Claude Code
 
-### 2. Download Claude Code 2.1.112
-
-On any computer with Node.js/npm:
+Claude Code is Anthropic's software and is **not included** — you supply your own copy
+(version 2.1.112). On any computer with Node.js:
 
 ```sh
 npm pack @anthropic-ai/claude-code@2.1.112
@@ -113,45 +104,27 @@ tar xzf anthropic-ai-claude-code-2.1.112.tgz
 # copy package/cli.js to Work:mosnode/cli.js
 ```
 
-### 3. Precompile to bytecode (once)
+### 3. Run
 
 In a MorphOS Shell:
 
 ```
 cd Work:mosnode
-stack 16777216
-mosnode --emit-bc cli.qbc cli.js
+execute claude
 ```
 
-This takes a while. After it finishes, start from `cli.qbc` instead of `cli.js`.
+The **first** run compiles `cli.js` to fast-start bytecode (one time, a few minutes),
+then launches Claude Code. Every run after that starts straight away. Then type
+`/login` to sign in (opens your MorphOS web browser — set `MOSNODE_BROWSER` to choose
+it), or set `ANTHROPIC_API_KEY` to use an API key.
 
-### 4. Launch script
+**For Claude's Bash tool** you also need a MorphOS (ixemul) `ksh` at
+`Work:mosnode/bin/ksh` (from the free MorphOS SDK). Everything else — the chat, Read,
+Edit, Glob, Grep — works without it.
 
-Save as `Work:mosnode/claude` and run it with `execute Work:mosnode/claude`:
-
-```
-cd Work:mosnode
-assign LIBS: Work:mosnode/libs ADD
-setenv MOSNODE_LIB Work:mosnode/lib
-setenv HOME /Work/mosnode
-setenv MOSNODE_KSH /Work/mosnode/bin/ksh
-setenv IXPPCSTACK 16777216
-stack 16777216
-setenv ANTHROPIC_DEFAULT_SONNET_MODEL claude-sonnet-5-5
-setenv ANTHROPIC_DEFAULT_HAIKU_MODEL claude-haiku-5-5
-setenv MAX_THINKING_TOKENS 0
-setenv CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC 1
-mosnode cli.qbc --strict-mcp-config
-```
-
-The `assign LIBS: ... ADD` only adds a search path. It doesn't replace any system files,
-and it's gone after a reboot. Everything MOSnode needs stays inside its own folder.
-
-### 5. Sign in
-
-Type `/login` in Claude Code. It opens your MorphOS web browser for sign-in (set
-`MOSNODE_BROWSER` to choose the browser). You can also use an API key by setting
-`ANTHROPIC_API_KEY`.
+Everything stays inside `Work:mosnode`: the launcher only ADDs a `LIBS:` search path
+(gone after reboot) and sets session-only environment variables — it never touches
+system files.
 
 ## Configuration
 
@@ -164,9 +137,11 @@ Type `/login` in Claude Code. It opens your MorphOS web browser for sign-in (set
 | `MOSNODE_DEBUG` | Enable debug logging |
 | `IXPPCSTACK` | ixemul stack size. Use 16 MB (`16777216`); QuickJS needs a large stack |
 
-## Building
+## Building (optional — for developers)
 
-MOSnode is cross-compiled on Linux x86-64.
+Most people just use the `.lha` release above and never build anything. Build from
+source only if you want to change the runtime. MOSnode is cross-compiled on Linux
+x86-64.
 
 Requirements:
 
@@ -183,6 +158,11 @@ git -C ../quickjs-ng apply ../MOSnode/patches/quickjs-ng.patch
 
 The build uses `-O1 -fno-strict-aliasing -fwrapv` on purpose: GCC 15 at `-O2` miscompiles
 QuickJS on PowerPC.
+
+To make a runnable MorphOS install from a source build, assemble a folder like the
+`.lha`: `build-morphos/mosnode_s` → `mosnode`, this repo's `lib/`, and
+`packaging/claude` → `claude` (and `packaging/CLAUDE.md` → `.claude/CLAUDE.md`). Then
+follow the install steps above from step 2.
 
 For development, `make` builds a native Linux version (`build/mosnode`, needs OpenSSL
 headers and `../quickjs-ng/build/libqjs.a`), which can run `cli.js` on Linux too.

@@ -1,0 +1,29 @@
+.KEY args
+.BRA {
+.KET }
+; MOSnode launcher for Claude Code. Run with:  execute claude
+; On first run it compiles cli.js to fast-start bytecode, then launches.
+cd Work:mosnode
+assign LIBS: Work:mosnode/libs ADD
+setenv MOSNODE_LIB Work:mosnode/lib
+setenv HOME /Work/mosnode
+setenv MOSNODE_KSH /Work/mosnode/bin/ksh
+setenv IXPPCSTACK 16777216
+stack 16777216
+setenv ANTHROPIC_DEFAULT_SONNET_MODEL claude-sonnet-5-5
+setenv ANTHROPIC_DEFAULT_HAIKU_MODEL claude-haiku-5-5
+setenv MAX_THINKING_TOKENS 0
+setenv CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC 1
+IF NOT EXISTS cli.qbc
+  IF EXISTS cli.js
+    echo "First run: compiling Claude Code to bytecode (one-time, please wait a few minutes)..."
+    mosnode --emit-bc cli.qbc cli.js
+    echo "Done."
+  ELSE
+    echo "Claude Code (cli.js) is not here yet."
+    echo "On a PC with Node.js:  npm pack @anthropic-ai/claude-code@2.1.112"
+    echo "then copy package/cli.js to Work:mosnode/cli.js and run 'execute claude' again."
+    quit
+  ENDIF
+ENDIF
+mosnode cli.qbc --strict-mcp-config

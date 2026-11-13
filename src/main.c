@@ -376,7 +376,7 @@ int main(int argc, char **argv) {
     const char *emit_bc = NULL;  /* --emit-bc <out>: compile entry to bytecode, don't run */
     while (argi < argc && argv[argi][0] == '-') {
         if (!strcmp(argv[argi], "--version") || !strcmp(argv[argi], "-v")) {
-            printf("mosnode 1.0.0 (quickjs-ng %d.%d.%d)\n",
+            printf("mosnode 1.0.1 (quickjs-ng %d.%d.%d)\n",
                    QJS_VERSION_MAJOR, QJS_VERSION_MINOR, QJS_VERSION_PATCH);
             return 0;
         } else if (!strcmp(argv[argi], "--emit-bc")) {

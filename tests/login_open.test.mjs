@@ -120,6 +120,27 @@ reset({ HOME: home });
 const s = CP.spawnSync("xdg-open", [URL1]);
 ok("spawnSync: status 0", s.status === 0 && s.error === undefined && N.state.runs.length === 1, JSON.stringify(s));
 
+// ---- GUI/app launch routing: `<app> &` (_bgLaunch) and `Run <app>` (_runLaunch) ----
+// cli.js wraps the Bash command as: eval '<cmd>' < /dev/null && pwd -P >| <cwdfile>
+const wrap = (c) => `eval '${c.replace(/'/g, "'\\''")}' < /dev/null && pwd -P >| /RAM/T/claude-0-cwd`;
+ok("runLaunch: Run RAM:app", CP._runLaunch(wrap('Run RAM:calc_mui; echo "exit: $?"'))?.amiga === "RAM:calc_mui");
+ok("runLaunch: ixemul /RAM/app -> RAM:app", CP._runLaunch(wrap("Run /RAM/calc_mui"))?.amiga === "RAM:calc_mui");
+ok("runLaunch: Run with args", CP._runLaunch(wrap("Run Work:apps/MyApp arg1"))?.amiga === "Work:apps/MyApp arg1");
+ok("runLaunch: Run >NIL: app (redirect stripped)", CP._runLaunch(wrap('Run >NIL: RAM:notes_mui; echo "run exit: $?"'))?.amiga === "RAM:notes_mui");
+ok("runLaunch: Run >out <in app", CP._runLaunch(wrap("Run >NIL: <NIL: Work:a/App"))?.amiga === "Work:a/App");
+ok("runLaunch: lowercase run", CP._runLaunch(wrap("run SYS:Utilities/MultiView x"))?.amiga === "SYS:Utilities/MultiView x");
+ok("runLaunch: non-Run -> null", CP._runLaunch(wrap("ls -la")) === null);
+ok("runLaunch: pipe rejected", CP._runLaunch(wrap("Run app | grep x")) === null);
+ok("runLaunch: redirect rejected", CP._runLaunch(wrap("Run app >out")) === null);
+ok("bgLaunch: `<app> &` still works", CP._bgLaunch(wrap("RAM:calc_mui &"))?.amiga === "RAM:calc_mui");
+ok("bgLaunch: Run is not background", CP._bgLaunch(wrap('Run RAM:calc_mui; echo x')) === null);
+
+// end-to-end: spawning a `Run <app>` shell command routes through amigaRun, exit 0
+reset({ HOME: home });
+code = await waitExit(CP.spawn("/bin/sh", ["-c", wrap('Run RAM:calc_mui; echo "exit: $?"')], { cwd: "/RAM/x" }));
+ok("spawn Run -> amigaRun, exit 0", code === 0 && N.state.runs.includes("RAM:calc_mui"),
+   JSON.stringify({ code, runs: N.state.runs }));
+
 // ---- older binary without amigaRun ----
 reset({ HOME: home });
 N._dropAmigaRun();
