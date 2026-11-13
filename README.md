@@ -6,7 +6,8 @@ Made by **Bart** & **Dave "skateman" Koelman** · Ported with **[Claude Code](ht
 
 Claude Code for MorphOS · Claude Code on MorphOS · Claude Code harness on MorphOS · Claude Code on PowerPC
 
-> **Note:** the source code is being cleaned up for release and will be published in this repository shortly.
+> The full runtime source is in this repository. To run it on MorphOS, see
+> **[Install on MorphOS](#install-on-morphos)**.
 
 ---
 

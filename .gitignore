@@ -18,3 +18,6 @@ tests/**/*.png
 # never commit Claude Code itself or its compiled bytecode
 cli.js
 *.qbc
+
+# internal dev handoff notes (contains workspace ids etc.)
+HANDOFF.md

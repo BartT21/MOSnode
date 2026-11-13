@@ -1,0 +1,859 @@
+{
+ "assert": {
+  "named": [],
+  "default": 3,
+  "ns": 0,
+  "dyn": 0,
+  "req": 7,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "async_hooks": {
+  "named": [
+   "AsyncLocalStorage"
+  ],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 0,
+  "reqCallees": []
+ },
+ "buffer": {
+  "named": [
+   "Buffer"
+  ],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 25,
+  "reqCallees": [
+   "d6",
+   "Symbol"
+  ]
+ },
+ "bun:jsc": {
+  "named": [],
+  "default": 0,
+  "ns": 0,
+  "dyn": 1,
+  "req": 0,
+  "reqCallees": []
+ },
+ "child_process": {
+  "named": [
+   "exec",
+   "execFile",
+   "execFileSync",
+   "execSync",
+   "spawn",
+   "spawnSync"
+  ],
+  "default": 2,
+  "ns": 1,
+  "dyn": 0,
+  "req": 7,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "constants": {
+  "named": [],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 1,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "crypto": {
+  "named": [
+   "createHash",
+   "randomBytes",
+   "randomUUID"
+  ],
+  "default": 3,
+  "ns": 0,
+  "dyn": 0,
+  "req": 25,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "dns": {
+  "named": [
+   "lookup"
+  ],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 1,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "events": {
+  "named": [
+   "EventEmitter",
+   "once",
+   "setMaxListeners"
+  ],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 7,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "fs": {
+  "named": [
+   "accessSync",
+   "appendFileSync",
+   "chmodSync",
+   "closeSync",
+   "constants",
+   "createReadStream",
+   "createWriteStream",
+   "existsSync",
+   "fstat",
+   "fstatSync",
+   "fsyncSync",
+   "mkdirSync",
+   "openSync",
+   "promises",
+   "readFileSync",
+   "readSync",
+   "readdirSync",
+   "realpathSync",
+   "rm",
+   "rmSync",
+   "stat",
+   "statSync",
+   "unlinkSync",
+   "unwatchFile",
+   "watch",
+   "watchFile",
+   "writeFileSync",
+   "writeSync"
+  ],
+  "default": 0,
+  "ns": 5,
+  "dyn": 0,
+  "req": 27,
+  "reqCallees": [
+   "d6",
+   "Lpz"
+  ]
+ },
+ "fs/promises": {
+  "named": [
+   "access",
+   "appendFile",
+   "chmod",
+   "copyFile",
+   "link",
+   "lstat",
+   "mkdir",
+   "mkdtemp",
+   "open",
+   "readFile",
+   "readdir",
+   "readlink",
+   "realpath",
+   "rename",
+   "rm",
+   "rmdir",
+   "stat",
+   "symlink",
+   "truncate",
+   "unlink",
+   "utimes",
+   "writeFile"
+  ],
+  "default": 0,
+  "ns": 3,
+  "dyn": 1,
+  "req": 2,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "http": {
+  "named": [
+   "createServer"
+  ],
+  "default": 3,
+  "ns": 0,
+  "dyn": 2,
+  "req": 12,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "http2": {
+  "named": [],
+  "default": 1,
+  "ns": 0,
+  "dyn": 0,
+  "req": 8,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "https": {
+  "named": [
+   "Agent"
+  ],
+  "default": 2,
+  "ns": 0,
+  "dyn": 2,
+  "req": 9,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "module": {
+  "named": [
+   "createRequire"
+  ],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 1,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "net": {
+  "named": [
+   "createConnection",
+   "createServer",
+   "isIP"
+  ],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 14,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "node:assert": {
+  "named": [],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 27,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "node:async_hooks": {
+  "named": [
+   "AsyncLocalStorage",
+   "AsyncResource"
+  ],
+  "default": 0,
+  "ns": 0,
+  "dyn": 1,
+  "req": 5,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "node:buffer": {
+  "named": [
+   "Buffer"
+  ],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 11,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "node:child_process": {
+  "named": [
+   "ChildProcess",
+   "execFile",
+   "execFileSync",
+   "execSync",
+   "spawn",
+   "spawnSync"
+  ],
+  "default": 2,
+  "ns": 0,
+  "dyn": 0,
+  "req": 2,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "node:console": {
+  "named": [],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 1,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "node:crypto": {
+  "named": [
+   "createHash",
+   "createPrivateKey",
+   "randomBytes",
+   "randomUUID"
+  ],
+  "default": 0,
+  "ns": 0,
+  "dyn": 1,
+  "req": 6,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "node:diagnostics_channel": {
+  "named": [],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 1,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "node:dns": {
+  "named": [],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 1,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "node:events": {
+  "named": [],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 8,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "node:fs": {
+  "named": [
+   "createReadStream",
+   "createWriteStream",
+   "readFileSync"
+  ],
+  "default": 4,
+  "ns": 1,
+  "dyn": 0,
+  "req": 3,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "node:fs/promises": {
+  "named": [
+   "constants",
+   "lstat",
+   "readFile",
+   "readdir",
+   "realpath",
+   "stat"
+  ],
+  "default": 2,
+  "ns": 0,
+  "dyn": 0,
+  "req": 1,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "node:http": {
+  "named": [
+   "Agent",
+   "createServer",
+   "request"
+  ],
+  "default": 0,
+  "ns": 1,
+  "dyn": 0,
+  "req": 4,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "node:http2": {
+  "named": [],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 1,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "node:https": {
+  "named": [
+   "request"
+  ],
+  "default": 0,
+  "ns": 1,
+  "dyn": 0,
+  "req": 0,
+  "reqCallees": []
+ },
+ "node:module": {
+  "named": [
+   "createRequire"
+  ],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 0,
+  "reqCallees": []
+ },
+ "node:net": {
+  "named": [
+   "BlockList",
+   "connect",
+   "createServer",
+   "isIP"
+  ],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 4,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "node:os": {
+  "named": [
+   "EOL",
+   "constants",
+   "homedir",
+   "tmpdir"
+  ],
+  "default": 5,
+  "ns": 1,
+  "dyn": 0,
+  "req": 2,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "node:path": {
+  "named": [
+   "dirname",
+   "join",
+   "relative",
+   "resolve",
+   "sep"
+  ],
+  "default": 6,
+  "ns": 0,
+  "dyn": 0,
+  "req": 3,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "node:perf_hooks": {
+  "named": [],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 1,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "node:process": {
+  "named": [],
+  "default": 16,
+  "ns": 2,
+  "dyn": 0,
+  "req": 2,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "node:querystring": {
+  "named": [],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 1,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "node:readline": {
+  "named": [],
+  "default": 0,
+  "ns": 1,
+  "dyn": 0,
+  "req": 0,
+  "reqCallees": []
+ },
+ "node:stream": {
+  "named": [
+   "PassThrough",
+   "Readable",
+   "Transform"
+  ],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 14,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "node:stream/consumers": {
+  "named": [
+   "text"
+  ],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 0,
+  "reqCallees": []
+ },
+ "node:timers/promises": {
+  "named": [
+   "setTimeout"
+  ],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 0,
+  "reqCallees": []
+ },
+ "node:tls": {
+  "named": [
+   "connect"
+  ],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 1,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "node:tty": {
+  "named": [],
+  "default": 1,
+  "ns": 0,
+  "dyn": 0,
+  "req": 1,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "node:url": {
+  "named": [
+   "URL",
+   "fileURLToPath"
+  ],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 1,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "node:util": {
+  "named": [
+   "debuglog",
+   "inspect",
+   "promisify"
+  ],
+  "default": 1,
+  "ns": 0,
+  "dyn": 0,
+  "req": 15,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "node:util/types": {
+  "named": [],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 2,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "node:worker_threads": {
+  "named": [],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 2,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "node:zlib": {
+  "named": [],
+  "default": 0,
+  "ns": 1,
+  "dyn": 0,
+  "req": 3,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "os": {
+  "named": [
+   "constants",
+   "homedir",
+   "hostname",
+   "platform",
+   "release",
+   "tmpdir",
+   "type",
+   "userInfo",
+   "version"
+  ],
+  "default": 0,
+  "ns": 3,
+  "dyn": 0,
+  "req": 12,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "path": {
+  "named": [
+   "basename",
+   "delimiter",
+   "dirname",
+   "extname",
+   "isAbsolute",
+   "join",
+   "normalize",
+   "parse",
+   "posix",
+   "relative",
+   "resolve",
+   "sep",
+   "win32"
+  ],
+  "default": 1,
+  "ns": 21,
+  "dyn": 1,
+  "req": 44,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "path/posix": {
+  "named": [
+   "join"
+  ],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 0,
+  "reqCallees": []
+ },
+ "path/win32": {
+  "named": [],
+  "default": 0,
+  "ns": 1,
+  "dyn": 0,
+  "req": 0,
+  "reqCallees": []
+ },
+ "perf_hooks": {
+  "named": [],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 2,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "process": {
+  "named": [
+   "cwd"
+  ],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 7,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "querystring": {
+  "named": [],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 5,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "readline": {
+  "named": [
+   "createInterface"
+  ],
+  "default": 0,
+  "ns": 0,
+  "dyn": 2,
+  "req": 0,
+  "reqCallees": []
+ },
+ "stream": {
+  "named": [
+   "PassThrough",
+   "Readable",
+   "Stream"
+  ],
+  "default": 3,
+  "ns": 0,
+  "dyn": 0,
+  "req": 40,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "stream/promises": {
+  "named": [
+   "pipeline"
+  ],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 0,
+  "reqCallees": []
+ },
+ "string_decoder": {
+  "named": [],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 1,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "tls": {
+  "named": [],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 7,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "tty": {
+  "named": [
+   "ReadStream",
+   "isatty"
+  ],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 4,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "url": {
+  "named": [
+   "URL",
+   "fileURLToPath",
+   "parse",
+   "pathToFileURL"
+  ],
+  "default": 1,
+  "ns": 0,
+  "dyn": 0,
+  "req": 19,
+  "reqCallees": [
+   "d6",
+   "RK",
+   "_",
+   "Symbol",
+   "kp"
+  ]
+ },
+ "util": {
+  "named": [
+   "format",
+   "inspect",
+   "isDeepStrictEqual",
+   "promisify"
+  ],
+  "default": 2,
+  "ns": 0,
+  "dyn": 0,
+  "req": 26,
+  "reqCallees": [
+   "d6"
+  ]
+ },
+ "v8": {
+  "named": [
+   "getHeapSnapshot",
+   "getHeapSpaceStatistics",
+   "getHeapStatistics"
+  ],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 0,
+  "reqCallees": []
+ },
+ "vm": {
+  "named": [],
+  "default": 0,
+  "ns": 3,
+  "dyn": 0,
+  "req": 0,
+  "reqCallees": []
+ },
+ "worker_threads": {
+  "named": [],
+  "default": 0,
+  "ns": 0,
+  "dyn": 0,
+  "req": 1,
+  "reqCallees": [
+   "A9z"
+  ]
+ },
+ "zlib": {
+  "named": [
+   "deflateSync"
+  ],
+  "default": 1,
+  "ns": 0,
+  "dyn": 0,
+  "req": 10,
+  "reqCallees": [
+   "d6"
+  ]
+ }
+}
