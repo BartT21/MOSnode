@@ -6,8 +6,10 @@ Made by **Bart** & **Dave "skateman" Koelman** · Ported with **[Claude Code](ht
 
 Claude Code for MorphOS · Claude Code on MorphOS · Claude Code harness on MorphOS · Claude Code on PowerPC
 
-> The full runtime source is in this repository. To run it on MorphOS, see
-> **[Install on MorphOS](#install-on-morphos)**.
+> **Download:** get the ready-to-run **[`.lha` release](https://github.com/BartT21/MOSnode/releases/latest)**
+> for MorphOS (runtime + `lib/` + launch script), or build from source — see
+> **[Install on MorphOS](#install-on-morphos)**. You supply your own copy of
+> Claude Code's `cli.js` either way.
 
 ---
 
@@ -81,6 +83,11 @@ Known limitations:
 - Networking is IPv4 only.
 
 ## Install on MorphOS
+
+**Easiest:** download the latest [`.lha` release](https://github.com/BartT21/MOSnode/releases/latest)
+and unpack it to `Work:mosnode` — it already contains `mosnode`, `lib/`, the launch
+script and an `install` helper. Then skip to step 2 to add `cli.js`. The steps below
+describe the same layout if you prefer to assemble it from source.
 
 ### 1. Get the files
 
