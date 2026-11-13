@@ -87,16 +87,22 @@ It is ready to run — no compiling. Two steps:
 
 ### 1. Unpack
 
-Unpack the archive to `Work:mosnode` (double-click it, or `lha x MOSnode-*.lha`). You
-get `Work:mosnode/` with `mosnode`, `lib/`, the `claude` launcher, `get-cli.js`,
-`README.txt`, `LICENSE` and a `.claude/` folder.
+Unpack the archive **wherever you like** — any volume works (a hard-drive partition, a
+RAM disk, even a USB stick); there is nothing special about `Work:`. Double-click the
+archive, or `lha x MOSnode-*.lha`. You get a `MOSnode/` drawer containing `mosnode`,
+`lib/`, the `claude` launcher, `get-cli.js`, `README.txt`, `LICENSE` and a `.claude/`
+folder. The launcher finds everything relative to its own drawer (via `PROGDIR:`), so
+it does not matter which volume you chose.
+
+*The examples below use `Work:MOSnode` — substitute the drawer you actually unpacked
+into.*
 
 ### 2. Run
 
-Open a **MorphOS Shell** window and type these two lines:
+Open a **MorphOS Shell** window, `cd` into the drawer you unpacked, and run `claude`:
 
 ```
-cd Work:mosnode
+cd Work:MOSnode
 execute claude
 ```
 
@@ -153,13 +159,13 @@ copy from Anthropic's official npm registry — the same package
 `npm pack @anthropic-ai/claude-code@2.1.112` gets. Nothing is redistributed by MOSnode.
 If the MorphOS machine has no internet, copy `cli.js` in by hand instead: on any
 computer with Node.js run `npm pack @anthropic-ai/claude-code@2.1.112`, `tar xzf` it,
-and copy `package/cli.js` to `Work:mosnode/cli.js` before step 2.
+and copy `package/cli.js` into the `MOSnode` drawer (next to `mosnode`) before step 2.
 
-**For Claude's Bash tool** you also need a MorphOS (ixemul) `ksh` at
-`Work:mosnode/bin/ksh` (from the free MorphOS SDK). Everything else — the chat, Read,
+**For Claude's Bash tool** you also need a MorphOS (ixemul) `ksh` at `bin/ksh` inside
+the `MOSnode` drawer (from the free MorphOS SDK). Everything else — the chat, Read,
 Edit, Glob, Grep — works without it.
 
-Everything stays inside `Work:mosnode`: the launcher only ADDs a `LIBS:` search path
+Everything stays inside the `MOSnode` drawer: the launcher only ADDs a `LIBS:` search path
 (gone after reboot) and sets session-only environment variables — it never touches
 system files.
 

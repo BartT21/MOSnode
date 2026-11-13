@@ -7,9 +7,10 @@ shell — just on PowerPC / AmigaDOS instead of Linux.
 
 ## Do NOT modify or inspect-to-change the runtime
 
-This folder — `Work:mosnode` (`/Work/mosnode`) — **is the runtime that is
-running you right now.** Never edit, move, rename, delete, recompile or
-"improve" any of:
+This folder — the **MOSnode drawer** you were unpacked into (wherever that is:
+it holds the `mosnode` binary and the `claude` launcher, and it is your `HOME`)
+— **is the runtime that is running you right now.** Never edit, move, rename,
+delete, recompile or "improve" any of:
 
 - `mosnode` (the binary), `cli.js`, `cli.qbc`
 - the `lib/` folder (the Node.js API layer), `bin/`, `libs/`
@@ -25,7 +26,7 @@ inside. The runtime is maintained separately (github.com/BartT21/MOSnode).
 Keep everything you create **outside** this folder. Use `RAM:` for scratch and a
 dedicated `Work:` project directory for real work (make one, e.g.
 `Work:projects/<name>`). Build, compile and save there. Never drop build output,
-temp files or new projects into `Work:mosnode`.
+temp files or new projects into the MOSnode drawer.
 
 ## This is MorphOS, not Linux
 

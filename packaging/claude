@@ -1,13 +1,22 @@
 .KEY args
 .BRA {
 .KET }
-; MOSnode launcher for Claude Code. Run with:  execute claude
-; On first run it compiles cli.js to fast-start bytecode, then launches.
-cd Work:mosnode
-assign LIBS: Work:mosnode/libs ADD
-setenv MOSNODE_LIB Work:mosnode/lib
-setenv HOME /Work/mosnode
-setenv MOSNODE_KSH /Work/mosnode/bin/ksh
+; MOSnode launcher for Claude Code.
+; Unpack this archive into ANY drawer on ANY volume, then from that drawer run:
+;   execute claude
+; Nothing is hardcoded to a "Work:" volume: lib/, home and ksh all resolve via
+; PROGDIR: (the drawer the mosnode binary itself lives in), so it works wherever
+; you put it. Run it from the drawer you unpacked into.
+;
+; On first run it downloads Claude Code (cli.js) from npm and compiles it to
+; fast-start bytecode, then launches. Later runs start straight away.
+IF EXISTS libs
+  assign LIBS: libs ADD
+ENDIF
+setenv MOSNODE_LIB PROGDIR:lib
+setenv MOSNODE_HOME PROGDIR:
+setenv HOME /PROGDIR
+setenv MOSNODE_KSH PROGDIR:bin/ksh
 setenv IXPPCSTACK 16777216
 stack 16777216
 setenv ANTHROPIC_DEFAULT_SONNET_MODEL claude-sonnet-5-5
