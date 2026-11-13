@@ -4,6 +4,8 @@
 
 Made by **Bart** & **Dave "skateman" Koelman** · Ported with **[Claude Code](https://claude.com/claude-code)**
 
+Claude Code for MorphOS · Claude Code on MorphOS · Claude Code harness on MorphOS · Claude Code on PowerPC
+
 > **Note:** the source code is being cleaned up for release and will be published in this repository shortly.
 
 ---
