@@ -4,8 +4,6 @@
 
 Made by **Bart** & **Dave "skateman" Koelman** · Ported with **[Claude Code](https://claude.com/claude-code)**
 
-**ai4morphos** · AI for MorphOS · Claude Code on MorphOS · Node.js for MorphOS
-
 > **Note:** the source code is being cleaned up for release and will be published in this repository shortly.
 
 ---
