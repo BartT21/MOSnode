@@ -6,30 +6,31 @@ A Node.js-compatible runtime that runs Anthropic's Claude Code CLI natively on
 MorphOS. No compiling needed - this archive is ready to run.
 
 --------------------------------------------------------------------------------
-INSTALL (3 steps)
+INSTALL (2 steps)
 --------------------------------------------------------------------------------
 
 1. UNPACK this archive to  Work:mosnode
    (so you have Work:mosnode/mosnode, Work:mosnode/lib, etc.)
 
-2. ADD Claude Code. It is Anthropic's software, so you supply your own copy
-   (version 2.1.112). On any PC with Node.js:
-
-       npm pack @anthropic-ai/claude-code@2.1.112
-       tar xzf anthropic-ai-claude-code-2.1.112.tgz
-
-   Copy  package/cli.js  to  Work:mosnode/cli.js
-
-3. RUN it. In a MorphOS Shell:
+2. RUN it. In a MorphOS Shell:
 
        cd Work:mosnode
        execute claude
 
-   The first run compiles cli.js to bytecode (one time, a few minutes), then
-   starts Claude Code. Every run after that starts straight away.
+   The first run downloads Claude Code (cli.js, ~19 MB) straight from npm onto
+   your MorphOS machine - no second computer needed - then compiles it to
+   bytecode (one time, a few minutes) and starts Claude Code. Every run after
+   that starts straight away.
 
 Then type  /login  in Claude Code to sign in (opens your MorphOS web browser),
 or set  ANTHROPIC_API_KEY  to use an API key instead.
+
+Claude Code is Anthropic's software under its own license; MOSnode does not
+include it. The first-run download fetches your own copy from Anthropic's
+official npm registry (the same package "npm pack @anthropic-ai/claude-code"
+gets). If the machine has no internet, you can instead copy cli.js in by hand:
+on any PC with Node.js run  npm pack @anthropic-ai/claude-code@2.1.112  and
+tar xzf it, then copy  package/cli.js  to  Work:mosnode/cli.js  before step 2.
 
 --------------------------------------------------------------------------------
 NOTES

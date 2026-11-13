@@ -15,14 +15,17 @@ setenv ANTHROPIC_DEFAULT_HAIKU_MODEL claude-haiku-5-5
 setenv MAX_THINKING_TOKENS 0
 setenv CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC 1
 IF NOT EXISTS cli.qbc
+  IF NOT EXISTS cli.js
+    echo "Claude Code not found - downloading it from npm (one-time, ~19 MB)..."
+    mosnode get-cli.js
+  ENDIF
   IF EXISTS cli.js
-    echo "First run: compiling Claude Code to bytecode (one-time, please wait a few minutes)..."
+    echo "Compiling Claude Code to bytecode (one-time, please wait a few minutes)..."
     mosnode --emit-bc cli.qbc cli.js
     echo "Done."
   ELSE
-    echo "Claude Code (cli.js) is not here yet."
-    echo "On a PC with Node.js:  npm pack @anthropic-ai/claude-code@2.1.112"
-    echo "then copy package/cli.js to Work:mosnode/cli.js and run 'execute claude' again."
+    echo "Could not get Claude Code. Check your internet connection and run"
+    echo "'execute claude' again, or copy cli.js in by hand (see README.txt)."
     quit
   ENDIF
 ENDIF

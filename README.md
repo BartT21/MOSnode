@@ -78,33 +78,20 @@ Known limitations:
   Code version than 2.1.112, so the API rejects them.
 - **Extended thinking is off** (`MAX_THINKING_TOKENS=0`). 2.1.112 sends an older thinking
   parameter that current models reject.
-- **Search:** Claude Code's Grep tool uses ripgrep, which has no MorphOS build. Claude
-  falls back to `grep`/`find` through the Bash tool.
 - Networking is IPv4 only.
 
 ## Install on MorphOS
 
 Download the latest [`.lha` release](https://github.com/BartT21/MOSnode/releases/latest).
-It is ready to run — no compiling. Three steps:
+It is ready to run — no compiling. Two steps:
 
 ### 1. Unpack
 
 Unpack the archive to `Work:mosnode` (double-click it, or `lha x MOSnode-*.lha`). You
-get `Work:mosnode/` with `mosnode`, `lib/`, the `claude` launcher, `README.txt`,
-`LICENSE` and a `.claude/` folder.
+get `Work:mosnode/` with `mosnode`, `lib/`, the `claude` launcher, `get-cli.js`,
+`README.txt`, `LICENSE` and a `.claude/` folder.
 
-### 2. Add Claude Code
-
-Claude Code is Anthropic's software and is **not included** — you supply your own copy
-(version 2.1.112). On any computer with Node.js:
-
-```sh
-npm pack @anthropic-ai/claude-code@2.1.112
-tar xzf anthropic-ai-claude-code-2.1.112.tgz
-# copy package/cli.js to Work:mosnode/cli.js
-```
-
-### 3. Run
+### 2. Run
 
 In a MorphOS Shell:
 
@@ -113,10 +100,19 @@ cd Work:mosnode
 execute claude
 ```
 
-The **first** run compiles `cli.js` to fast-start bytecode (one time, a few minutes),
-then launches Claude Code. Every run after that starts straight away. Then type
-`/login` to sign in (opens your MorphOS web browser — set `MOSNODE_BROWSER` to choose
-it), or set `ANTHROPIC_API_KEY` to use an API key.
+The **first** run downloads Claude Code (`cli.js`, ~19 MB) straight from npm onto the
+MorphOS machine — no second computer needed — then compiles it to fast-start bytecode
+(one time, a few minutes) and launches Claude Code. Every run after that starts
+straight away. Then type `/login` to sign in (opens your MorphOS web browser — set
+`MOSNODE_BROWSER` to choose it), or set `ANTHROPIC_API_KEY` to use an API key.
+
+**About that download:** Claude Code is Anthropic's software under its own license, so
+MOSnode does not include it. The first-run download (`get-cli.js`) fetches your own
+copy from Anthropic's official npm registry — the same package
+`npm pack @anthropic-ai/claude-code@2.1.112` gets. Nothing is redistributed by MOSnode.
+If the MorphOS machine has no internet, copy `cli.js` in by hand instead: on any
+computer with Node.js run `npm pack @anthropic-ai/claude-code@2.1.112`, `tar xzf` it,
+and copy `package/cli.js` to `Work:mosnode/cli.js` before step 2.
 
 **For Claude's Bash tool** you also need a MorphOS (ixemul) `ksh` at
 `Work:mosnode/bin/ksh` (from the free MorphOS SDK). Everything else — the chat, Read,
