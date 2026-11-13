@@ -1,0 +1,20 @@
+# build output
+build/
+build-morphos/
+*.o
+*.a
+
+# npm installs (rebuild with `npm ci` in tools/ and vendor-src/)
+node_modules/
+
+# local backups and scratch
+*.bak
+*.pre-v*
+*.log
+
+# screenshots from on-device test runs
+tests/**/*.png
+
+# never commit Claude Code itself or its compiled bytecode
+cli.js
+*.qbc
