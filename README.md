@@ -93,18 +93,59 @@ get `Work:mosnode/` with `mosnode`, `lib/`, the `claude` launcher, `get-cli.js`,
 
 ### 2. Run
 
-In a MorphOS Shell:
+Open a **MorphOS Shell** window and type these two lines:
 
 ```
 cd Work:mosnode
 execute claude
 ```
 
-The **first** run downloads Claude Code (`cli.js`, ~19 MB) straight from npm onto the
-MorphOS machine — no second computer needed — then compiles it to fast-start bytecode
-(one time, a few minutes) and launches Claude Code. Every run after that starts
-straight away. Then type `/login` to sign in (opens your MorphOS web browser — set
-`MOSNODE_BROWSER` to choose it), or set `ANTHROPIC_API_KEY` to use an API key.
+That's the whole launch — `execute claude` starts everything. Here is exactly what you
+will see, step by step:
+
+1. **First run only — download.** Claude Code itself (`cli.js`, ~19 MB) is not in the
+   archive, so the launcher fetches it from npm onto your MorphOS machine. You'll see:
+
+   ```
+   Claude Code not found - downloading it from npm (one-time, ~19 MB)...
+   Downloading Claude Code 2.1.112 from npm (~19 MB)...
+   Downloaded 18679326 bytes. Decompressing...
+   Saved cli.js (13711684 bytes).
+   ```
+
+   This takes a minute or two depending on your connection. It happens **once** — the
+   file is kept for next time.
+
+2. **First run only — compile.** The 13 MB `cli.js` is compiled to fast-start bytecode:
+
+   ```
+   Compiling Claude Code to bytecode (one-time, please wait a few minutes)...
+   ```
+
+   This step prints nothing while it works and can take **a few minutes** on a Shell
+   prompt that just sits there — that is normal, it has **not** frozen. When it finishes
+   it prints `Done.` and continues. This also happens only once.
+
+3. **Claude Code starts.** The terminal clears and Claude Code's own screen appears. The
+   first time, it asks you to pick a colour theme (use the arrow keys and Return), then
+   shows the main prompt.
+
+4. **Sign in.** At the Claude Code prompt, type:
+
+   ```
+   /login
+   ```
+
+   This opens your MorphOS web browser (Wayfarer by default; set `MOSNODE_BROWSER` to
+   use another). Sign in there with your Claude account, and the terminal picks the
+   login up automatically. *(Prefer an API key? Skip `/login` and set
+   `ANTHROPIC_API_KEY` in the Shell before `execute claude` instead.)*
+
+5. **Use it.** Type a request at the prompt and press Return. Useful slash commands:
+   `/help` lists everything, `/model` switches model, `/exit` (or Ctrl-D) quits.
+
+**Every run after the first** skips steps 1–2 entirely — `execute claude` goes straight
+to Claude Code in a second or two, and you stay logged in.
 
 **About that download:** Claude Code is Anthropic's software under its own license, so
 MOSnode does not include it. The first-run download (`get-cli.js`) fetches your own
